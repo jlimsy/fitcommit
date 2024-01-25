@@ -9,6 +9,11 @@ import RoulettePage from "../RoulettePage/RoulettePage";
 import EntriesPage from "../EntriesPage/EntriesPage";
 import FavouritesPage from "../FavouritesPage/FavouritesPage";
 
+// ========== TO BE DEL ==========  //
+import * as usersAPI from "../../utilities/users-api";
+import * as usersService from "../../utilities/users-service";
+// ========== TO BE DEL ========== //
+
 export default function App() {
   const [user, setUser] = useState(false);
   //to be used in RoulettePage and RouletteInputBar
@@ -19,9 +24,45 @@ export default function App() {
     setSelectedMuscle(muscle);
   };
 
-  const handleClick = () => {
-    setUser(!user);
+  // ========== TO BE DEL ==========  //
+  const handleClick = async () => {
+    const response = await fetch("/api/users/login", {
+      method: "POST",
+      body: JSON.stringify({
+        email: "jon@jon",
+        password: "jonathanpw",
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      const token = await response.json();
+      localStorage.setItem("token", token.token);
+      setUser(getUser());
+    } else {
+      setError("Invalid username or password. Please try again.");
+    }
   };
+
+  function getToken() {
+    const token = localStorage.getItem("token");
+    if (!token) return null;
+    const payload = JSON.parse(atob(token.split(".")[1]));
+    if (payload.exp < Date.now() / 1000) {
+      localStorage.removeItem("token");
+      return null;
+    }
+    return token;
+  }
+
+  function getUser() {
+    const token = getToken();
+    // If there's a token, return the user in the payload, otherwise return null
+    return token ? JSON.parse(atob(token.split(".")[1])).user : null;
+  }
+  // ========== TO BE DEL ========== //
 
   const addToFavorites = (item) => {
     setFavorites((prevFavorites) => [...prevFavorites, item]);

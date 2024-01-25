@@ -160,7 +160,7 @@ export default function SignUpForm({ setIsNewAccount, user, setUser }) {
                   />
                 </div>
                 <div className="flex items-start">
-                  <div className="flex items-center h-5">
+                  {/* <div className="flex items-center h-5">
                     <input
                       id="terms"
                       aria-describedby="terms"
@@ -168,8 +168,8 @@ export default function SignUpForm({ setIsNewAccount, user, setUser }) {
                       className="w-4 h-4 border border-zinc-300 rounded bg-zinc-50 focus:ring-3 focus:ring-primary-300 dark:bg-zinc-700 dark:border-zinc-600 dark:focus:ring-primary-600 dark:ring-offset-zinc-800"
                       required=""
                     />
-                  </div>
-                  <div className="ml-3 text-sm">
+                  </div> */}
+                  {/* <div className="ml-3 text-sm">
                     <label htmlFor="terms" className="font-light text-jade-500">
                       I accept the{" "}
                       <a
@@ -179,7 +179,7 @@ export default function SignUpForm({ setIsNewAccount, user, setUser }) {
                         Terms and Conditions
                       </a>
                     </label>
-                  </div>
+                  </div> */}
                 </div>
                 <button
                   type="submit"

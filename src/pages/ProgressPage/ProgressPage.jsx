@@ -21,7 +21,7 @@ export default function ProgressPage({ user, setUser }) {
   }, []);
 
   const handleSearch = async () => {
-    console.log("app page:", selectedExercise);
+    // console.log("app page:", selectedExercise);
     const response = await getEntryByExercise(selectedExercise);
 
     setProgressData(response);

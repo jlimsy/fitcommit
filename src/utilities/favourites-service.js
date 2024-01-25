@@ -1,18 +1,18 @@
 import * as favouriteAPI from "./favourites-api";
 
-export async function createFavourite(name, muscle, img) {
+export async function createFavourite(name, muscle, img, id) {
   const body = {
     exercise: name,
     muscle: muscle,
     img: img,
   };
 
-  const response = await favouriteAPI.createFavourite(body);
+  const response = await favouriteAPI.createFavourite(body, id);
   return response;
 }
 
-export async function getFavouriteByUserId() {
-  const response = await favouriteAPI.getFavouriteByUserId();
+export async function getFavouriteByUserId(id) {
+  const response = await favouriteAPI.getFavouriteByUserId(id);
   return response;
 }
 

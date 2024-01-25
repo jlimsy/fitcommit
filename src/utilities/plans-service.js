@@ -1,6 +1,6 @@
 import * as planAPI from "./plans-api";
 
-export async function createPlan(entryFormData) {
+export async function createPlan(entryFormData, id) {
   const body = {
     date: entryFormData.date,
     exercise: entryFormData.exercise,
@@ -9,13 +9,13 @@ export async function createPlan(entryFormData) {
     sets: entryFormData.sets,
     weight: entryFormData.weight,
   };
-
-  const response = await planAPI.createPlan(body);
+  console.log(body);
+  const response = await planAPI.createPlan(body, id);
   return response;
 }
 
-export async function fetchAllPlansById() {
-  const response = await planAPI.fetchAllPlansById();
+export async function fetchAllPlansById(id) {
+  const response = await planAPI.fetchAllPlansById(id);
   return response;
 }
 

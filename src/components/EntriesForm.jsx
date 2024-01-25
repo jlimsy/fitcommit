@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createEntry } from "../utilities/entries-service";
 import { createPlan } from "../utilities/plans-service";
 
-export default function EntriesForm(user, setUser) {
+export default function EntriesForm({ user }) {
   const [entryFormData, setEntryFormData] = useState({
     date: "",
     exercise: "",
@@ -23,10 +23,10 @@ export default function EntriesForm(user, setUser) {
     // POST to add entry into MongoDB - Collection
     evt.preventDefault();
     if (submitType === "progress") {
-      const response = await createEntry(entryFormData);
+      const response = await createEntry(entryFormData, user._id);
       console.log(response);
     } else if (submitType === "calendar") {
-      const response = await createPlan(entryFormData);
+      const response = await createPlan(entryFormData, user._id);
       console.log(response);
     }
   };
@@ -61,7 +61,6 @@ export default function EntriesForm(user, setUser) {
                   placeholder="Bench Press"
                   value={entryFormData.exercise}
                   onChange={handleChange}
-                  required=""
                 >
                   <option value="Bench Press">Bench Press</option>
                   <option value="Bicep Curl">Bicep Curl</option>

@@ -27,7 +27,7 @@ export default function App() {
     setFavorites((prevFavorites) => [...prevFavorites, item]);
   };
 
-  console.log(user);
+  // console.log("user", user);
   return (
     <>
       <header>{user?.name}</header>
@@ -38,25 +38,16 @@ export default function App() {
             <Routes>
               <Route
                 path="/dashboard"
-                element={<DashboardPage user={user} setUser={setUser} />}
+                element={<DashboardPage user={user} />}
               />
-              <Route
-                path="/progress"
-                element={<ProgressPage user={user} setUser={setUser} />}
-              />
+              <Route path="/progress" element={<ProgressPage user={user} />} />
               <Route
                 path="/progress/new"
-                element={<EntriesPage user={user} setUser={setUser} />}
+                element={<EntriesPage user={user} />}
               />
               <Route
                 path="/favourites"
-                element={
-                  <FavouritesPage
-                    favorites={favorites}
-                    user={user}
-                    setUser={setUser}
-                  />
-                }
+                element={<FavouritesPage user={user} />}
               />
               <Route
                 path="/roulette"
@@ -66,7 +57,6 @@ export default function App() {
                     onMuscleChange={handleMuscleChange}
                     addToFavorites={addToFavorites}
                     user={user}
-                    setUser={setUser}
                   />
                 }
               />

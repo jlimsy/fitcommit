@@ -5,8 +5,8 @@ import { deleteFavourite } from "../utilities/favourites-service";
 export default function FavouritesCard({
   favourites,
   setFavItems,
-  user,
-  setUser,
+  // user,
+  // setUser,
 }) {
   const [showModal, setShowModal] = useState(false);
 

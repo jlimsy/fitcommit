@@ -7,8 +7,8 @@ export default function PlanModal({
   showModal,
   setShowModal,
   date,
-  user,
-  setUser,
+  // user,
+  // setUser,
   setPlans,
 }) {
   const [showEditPlanModal, setShowEditPlanModal] = useState(false);

@@ -8,7 +8,6 @@ export default function RoulettePage({
   onMuscleChange,
   addToFavorites,
   user,
-  setUser,
 }) {
   // const [rouletteResults, setRouletteResults] = useState("");
 
@@ -29,6 +28,7 @@ export default function RoulettePage({
             key={idx}
             item={item}
             addToFavorites={addToFavorites}
+            user={user}
           />
         ))}
       </div>

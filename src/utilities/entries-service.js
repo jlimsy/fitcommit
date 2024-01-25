@@ -1,6 +1,6 @@
 import * as entryAPI from "./entries-api";
 
-export async function createEntry(entryFormData) {
+export async function createEntry(entryFormData, id) {
   const body = {
     date: entryFormData.date,
     exercise: entryFormData.exercise,
@@ -9,17 +9,22 @@ export async function createEntry(entryFormData) {
     sets: entryFormData.sets,
     weight: entryFormData.weight,
   };
-
-  const response = await entryAPI.createEntry(body);
+  console.log("id", id);
+  console.log("body", body);
+  const response = await entryAPI.createEntry(body, id);
   return response;
 }
 
-export async function getEntryByExercise(selectedExercise) {
-  const response = await entryAPI.getEntryByExercise(selectedExercise);
+export async function getEntryByExercise(selectedExercise, limit, id) {
+  const response = await entryAPI.getEntryByExercise(
+    selectedExercise,
+    limit,
+    id
+  );
   return response;
 }
 
-export async function fetchAllEntriesById() {
-  const response = await entryAPI.fetchAllEntriesById();
+export async function fetchAllEntriesById(id) {
+  const response = await entryAPI.fetchAllEntriesById(id);
   return response;
 }

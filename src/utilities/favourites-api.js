@@ -1,7 +1,7 @@
 const BASE_URL = "/api/favourites";
 
-export async function createFavourite(body) {
-  const res = await fetch(BASE_URL + "/user/65af7674dccd7f24cfa144fd", {
+export async function createFavourite(body, id) {
+  const res = await fetch(BASE_URL + "/user/" + id, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
@@ -15,8 +15,8 @@ export async function createFavourite(body) {
   }
 }
 
-export async function getFavouriteByUserId() {
-  const res = await fetch(BASE_URL + "/user/65af7674dccd7f24cfa144fd", {
+export async function getFavouriteByUserId(id) {
+  const res = await fetch(BASE_URL + "/user/" + id, {
     headers: { "Content-Type": "application/json" },
   });
   const json = await res.json();

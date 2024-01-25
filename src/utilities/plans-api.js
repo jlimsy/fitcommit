@@ -1,12 +1,11 @@
 const BASE_URL = "/api/plan";
 
-export async function createPlan(body) {
-  const res = await fetch(BASE_URL + "/user/65af7674dccd7f24cfa144fd", {
+export async function createPlan(body, id) {
+  const res = await fetch(BASE_URL + "/user/" + id, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   });
-  console.log("plans-api running");
   const json = await res.json();
   if (res.ok) {
     return json;
@@ -16,8 +15,8 @@ export async function createPlan(body) {
   }
 }
 
-export async function fetchAllPlansById() {
-  const res = await fetch(BASE_URL + "/user/65af7674dccd7f24cfa144fd", {
+export async function fetchAllPlansById(id) {
+  const res = await fetch(BASE_URL + "/user/" + id, {
     headers: { "Content-Type": "application/json" },
   });
   const json = await res.json();

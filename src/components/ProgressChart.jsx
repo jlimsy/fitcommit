@@ -2,13 +2,8 @@ import { Bar, Line } from "react-chartjs-2";
 import { Chart as Chartjs } from "chart.js/auto";
 // import { progressData } from "../assets/test_data/test_progress_data";
 
-export default function ProgressChart({
-  defaultOption,
-  progressData,
-  user,
-  setUser,
-}) {
-  console.log("Default Option", defaultOption);
+export default function ProgressChart({ progressData }) {
+  console.log("ProgressData", progressData);
 
   const formatDate = (dateString) => {
     const formattedDate = new Date(dateString).toLocaleDateString("en-GB", {

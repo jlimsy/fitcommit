@@ -1,7 +1,7 @@
 const BASE_URL = "/api/entries";
 
-export async function createEntry(body) {
-  const res = await fetch(BASE_URL + "/user/65af7674dccd7f24cfa144fd", {
+export async function createEntry(body, id) {
+  const res = await fetch(BASE_URL + "/user/" + id, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
@@ -15,14 +15,11 @@ export async function createEntry(body) {
   }
 }
 
-export async function getEntryByExercise(exercise) {
+export async function getEntryByExercise(exercise, limit, id) {
   // console.log("entries-api", exercise);
-  const res = await fetch(
-    BASE_URL + `/exercise/${exercise}/7/65af7674dccd7f24cfa144fd`,
-    {
-      headers: { "Content-Type": "application/json" },
-    }
-  );
+  const res = await fetch(BASE_URL + `/exercise/${exercise}/${limit}/${id}`, {
+    headers: { "Content-Type": "application/json" },
+  });
   const json = await res.json();
   if (res.ok) {
     return json;
@@ -32,8 +29,8 @@ export async function getEntryByExercise(exercise) {
   }
 }
 
-export async function fetchAllEntriesById() {
-  const res = await fetch(BASE_URL + "/user/65af7674dccd7f24cfa144fd", {
+export async function fetchAllEntriesById(id) {
+  const res = await fetch(BASE_URL + "/user/" + id, {
     headers: { "Content-Type": "application/json" },
   });
   const json = await res.json();

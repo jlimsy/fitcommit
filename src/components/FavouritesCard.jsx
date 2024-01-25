@@ -5,7 +5,7 @@ import { deleteFavourite } from "../utilities/favourites-service";
 export default function FavouritesCard({
   favourites,
   setFavItems,
-  // user,
+  user,
   // setUser,
 }) {
   const [showModal, setShowModal] = useState(false);
@@ -46,7 +46,7 @@ export default function FavouritesCard({
           </button>
           {showModal && (
             <>
-              <AddToCalendarModal setShowModal={setShowModal} />
+              <AddToCalendarModal setShowModal={setShowModal} user={user}/>
               <div className="opacity-25 fixed inset-0 z-40 bg-zinc-50"></div>
             </>
           )}

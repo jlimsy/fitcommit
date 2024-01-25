@@ -1,11 +1,16 @@
 import { useState } from "react";
 import { createPlan } from "../utilities/plans-service";
 
-export default function AddToCalendarModal({ setShowModal, user, setUser }) {
+export default function AddToCalendarModal({
+  setShowModal,
+  user,
+  exercise,
+  muscle,
+}) {
   const [planFormData, setPlanFormData] = useState({
     date: "",
-    exercise: "Bench Press",
-    muscle: "Chest",
+    exercise: "",
+    muscle: "",
     reps: "",
     sets: "",
     weight: "",
@@ -16,18 +21,21 @@ export default function AddToCalendarModal({ setShowModal, user, setUser }) {
   };
 
   const handleSelectDate = (evt) => {
-    setPlanFormData({
-      ...planFormData,
-      [evt.target.name]: evt.target.value,
-    });
-
-    // alert("date is selected!");
+    setPlanFormData({ ...planFormData, [evt.target.name]: evt.target.value });
   };
 
   const handleAddToPlan = async () => {
     //code to add to plansSchema
-    const response = await createPlan(planFormData);
-    console.log(planFormData);
+    console.log("muscle&exercise", muscle, exercise);
+    console.log("beforePFDATA", planFormData);
+    setPlanFormData({
+      ...planFormData,
+      muscle,
+      exercise,
+    });
+    console.log("afterPFDATA", planFormData);
+    console.log(user._id);
+    const response = await createPlan(planFormData, user._id);
 
     console.log(response);
     setShowModal(false);
@@ -70,6 +78,7 @@ export default function AddToCalendarModal({ setShowModal, user, setUser }) {
                   id="date"
                   className="bg-zinc-50 border border-zinc-300 text-zinc-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                   required=""
+                  value={planFormData.date}
                   onChange={handleSelectDate}
                 />
               </div>

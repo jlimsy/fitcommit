@@ -9,7 +9,7 @@ export async function createPlan(entryFormData, id) {
     sets: entryFormData.sets,
     weight: entryFormData.weight,
   };
-  console.log(body);
+  console.log("createPlan", body);
   const response = await planAPI.createPlan(body, id);
   return response;
 }

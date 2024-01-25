@@ -1,4 +1,4 @@
-export default function EntriesCard({ entry }) {
+export default function EntriesCard({ entry, user, setUser }) {
   const formatDate = (dateString) => {
     const formattedDate = new Date(dateString).toLocaleDateString("en-GB", {
       day: "numeric",
@@ -7,6 +7,7 @@ export default function EntriesCard({ entry }) {
     });
     return formattedDate;
   };
+
   return (
     <>
       <div className="rounded-lg text-sm px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">

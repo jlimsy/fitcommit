@@ -35,7 +35,12 @@ export default function RouletteResults({ item, addToFavorites, user }) {
       </button>
       {showModal && (
         <>
-          <AddToCalendarModal setShowModal={setShowModal} />
+          <AddToCalendarModal
+            setShowModal={setShowModal}
+            exercise={item.name}
+            muscle={item.muscle}
+            user={user}
+          />
           <div className="opacity-25 fixed inset-0 z-40 bg-zinc-50"></div>
         </>
       )}

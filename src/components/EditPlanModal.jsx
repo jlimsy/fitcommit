@@ -14,7 +14,7 @@ export default function EditPlanModal({
 }) {
   const [entryFormData, setEntryFormData] = useState({
     date: "",
-    exercise: "",
+    exercise: "Arms",
     muscle: "",
     reps: "",
     sets: "",
@@ -35,6 +35,8 @@ export default function EditPlanModal({
       ...entryFormData,
       [evt.target.name]: evt.target.value,
     });
+
+    console.log(entryFormData);
   };
 
   const handleEditClick = async () => {

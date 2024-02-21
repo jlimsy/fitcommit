@@ -70,11 +70,11 @@ export default function App() {
       ) : (
         <AuthPage setUser={setUser} />
       )}
-      <div className="fixed right-0 bottom-0">
+      {/* <div className="fixed right-0 bottom-0">
         <button className="bg-jade-300" onClick={handleClick}>
           Tmp button to toggle setUser state
         </button>
-      </div>
+      </div> */}
     </>
   );
 }

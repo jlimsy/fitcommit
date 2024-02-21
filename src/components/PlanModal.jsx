@@ -20,12 +20,16 @@ export default function PlanModal({
   fDate.setUTCDate(fDate.getUTCDate() + 1);
   const clickedDate = fDate.toISOString();
 
+  console.log("plans", plans);
+
   const dateToMatch = (plans) => {
-    return plans.filter((plan) => {
+    return plans?.filter((plan) => {
       return plan.date === clickedDate;
     });
   };
+
   const plansForSelectedDay = dateToMatch(plans);
+  console.log("plansForSelectedDay", plansForSelectedDay);
 
   const handleCloseModal = () => {
     setShowModal(false);

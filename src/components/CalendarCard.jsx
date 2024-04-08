@@ -25,7 +25,6 @@ export default function CalendarCard({
     // This code will run whenever the 'date' state is updated
 
     if (date !== "") {
-      console.log("date after set state", date);
       setShowModal(true);
     }
   }, [date]);

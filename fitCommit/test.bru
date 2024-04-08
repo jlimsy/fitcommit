@@ -1,0 +1,22 @@
+meta {
+  name: test
+  type: http
+  seq: 5
+}
+
+post {
+  url: http://localhost:3000/api/entries/user/65af7674dccd7f24cfa144fd
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "date": "2024-01-26T00:00:00.000Z",
+    "exercise": "Leg Press",
+    "muscle": "Legs",
+    "reps": 50,
+    "sets": 50,
+    "weight": 50
+  }
+}

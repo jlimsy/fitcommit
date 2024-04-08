@@ -21,7 +21,8 @@ export default function ProgressSearchBar({
   };
 
   const handleClick = async () => {
-    handleSearch();
+    handleSearch(selectedExercise);
+    // getEntryByExercise();
     console.log("selectedExercise-", selectedExercise);
   };
 

@@ -20,8 +20,12 @@ export default function ProgressPage({ user }) {
   }, [defaultOption, limit, user._id]);
 
   const handleSearch = async () => {
-    // console.log("app page:", selectedExercise);
-    const response = await getEntryByExercise(selectedExercise);
+    console.log("app page:", selectedExercise);
+    const response = await getEntryByExercise(
+      selectedExercise,
+      limit,
+      user._id
+    );
 
     setProgressData(response);
 

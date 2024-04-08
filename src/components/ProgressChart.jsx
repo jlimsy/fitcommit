@@ -25,11 +25,13 @@ export default function ProgressChart({ progressData }) {
 
   findMaxWeight();
 
+  console.log(progressData);
+
   return (
     <>
       <Line
         data={{
-          labels: progressData.map((data) => formatDate(data.date)),
+          labels: progressData?.map((data) => formatDate(data.date)),
           datasets: [
             {
               data: progressData.map((data) => data.weight),

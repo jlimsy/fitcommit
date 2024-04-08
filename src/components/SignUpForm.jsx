@@ -148,8 +148,8 @@ export default function SignUpForm({ setIsNewAccount }) {
                       className="w-4 h-4 border border-zinc-300 rounded bg-zinc-50 focus:ring-3 focus:ring-primary-300 dark:bg-zinc-700 dark:border-zinc-600 dark:focus:ring-primary-600 dark:ring-offset-zinc-800"
                       required=""
                     />
-                  </div>
-                  <div className="ml-3 text-sm">
+                  </div> */}
+                  {/* <div className="ml-3 text-sm">
                     <label htmlFor="terms" className="font-light text-jade-500">
                       I accept the{" "}
                       <a

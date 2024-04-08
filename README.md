@@ -14,6 +14,7 @@ Gym goers can utilise fitCommit to plan their workout with the Calendar feature,
 
 - Users can sign up for an account. Password is hashed and authentication is done with JSON Web Token.
   ![Sign up page](public/01_signup.png)
+  ![Login page](public/02_login.png)
 
 ### Dashboard
 
@@ -23,7 +24,7 @@ Gym goers can utilise fitCommit to plan their workout with the Calendar feature,
 ![Dashboard with calendar and workout history](public/03_dashboard.png)
 ![Schedule a workout](public/04_calendarplan.png)
 
-### Progress
+### Track your progress
 
 - A line chart to monitor progress of strength training
 
